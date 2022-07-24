@@ -1,0 +1,53 @@
+{% if section.settings.show-tab == true %}
+  <button class="navbar-toggler" id="toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class= "tabs" {{block.shopify_attributes}}>
+    {% for block in section.blocks %}
+        {% case block.type %}
+            {% when 'collection' %}
+              <div class="wrapper">
+                <div class="button-wrapper">
+                  <button class="tab-button" data-id= {{- block.settings.collection.id -}}> {{- block.settings.collection.title | link_to: block.settings.collection.url }} </button>
+                </div>
+              </div>  
+        {% endcase %}
+    {% endfor %}
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Collection tabs",
+  "tag": "section",
+  "class": "collection_tabs",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show-tab",
+      "label": "Show collection tabs"
+    }
+  ],
+  "blocks": [
+     	{
+       "name": "Collection",
+       "type": "collection",
+       "limit": 8,
+       "settings": [
+         {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+            
+         }
+       ]
+     }
+   ]
+}
+{% endschema %}
+
+
+
+{{ 'custom-bar.css' | asset_url | stylesheet_tag }}
+
+{{ 'custom-bar.js' | asset_url | script_tag }}

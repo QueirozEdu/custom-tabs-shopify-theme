@@ -1,0 +1,52 @@
+.tabs {
+    display: flex;
+    overflow: hidden;
+    justify-content: space-evenly;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.tab-button {
+  background: none;
+  padding: 10px;
+  width: 150px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+
+.tab-button a {
+  text-decoration: none;
+  color: rgb(48, 48, 48);
+}
+
+.active {
+  color: #1848a1;
+  border-bottom: 4px solid #1848a1;
+
+}
+
+.navbar-toggler {
+  display: none;
+  width: 30px;
+  height: 20px;
+}
+
+
+
+@media only screen and (max-width: 900px) {
+  .navbar-toggler {
+    display: block;
+  }
+  .tabs {
+    display: none;
+  }
+}
+.tabsColapse {
+  display: flex;
+  flex-direction: column;
+}
+  
